@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        unordered_set<int> abc;
+        int a=0;
+        for(int i=0;i<nums.size();i++){
+            if(!abc.count(nums[i])){
+                nums[a]=nums[i];
+                abc.insert(nums[i]);
+                ++a;  
+            }
+            
+        }
+       return a; 
+    }
+    
+};

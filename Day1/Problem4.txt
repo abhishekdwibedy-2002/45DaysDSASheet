@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isValid(string s) {
+       stack<char> string;
+        for(int i=0;i<s.length();i++){
+            if(string.empty()){
+                string.push(s[i]);
+            }
+            else if ((string.top()=='('&& s[i]==')')  ||  (string.top()=='{' && s[i]=='}')  ||  (string.top()=='[' && s[i]==']')){
+                string.pop();
+            }
+            else{
+                string.push(s[i]);
+            }
+        }
+                    if(string.empty()){
+                        return true;
+                    }
+        return false;
+        
+    }
+};
