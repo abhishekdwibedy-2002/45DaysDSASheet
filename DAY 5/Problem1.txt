@@ -1,0 +1,23 @@
+Given a string s and a character letter, return the percentage of characters in s that equal letter rounded down to the nearest whole percent.
+
+
+https://leetcode.com/contest/weekly-contest-294/problems/percentage-of-letter-in-string/
+
+
+
+
+class Solution {
+public:
+    int percentageLetter(string s, char letter) {
+        int count =0;
+        int per;
+        int str=s.length();
+        for(int i=0;i<str;i++){
+            if(s[i]==letter){
+                count++;
+            }
+        }
+        per = (count*100)/str;
+        return per;
+    }
+};

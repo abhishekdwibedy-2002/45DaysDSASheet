@@ -1,0 +1,70 @@
+Given a string s, return the number of palindromic substrings in it.
+
+A string is a palindrome when it reads the same backward as forward.
+
+A substring is a contiguous sequence of characters within the string.
+
+
+https://leetcode.com/problems/palindromic-substrings/
+
+
+
+
+
+class Solution {
+public:
+    int countSubstrings(string s) {
+        
+       /* bool palindrom(string s){
+            int i;
+            int j=s.length()-1;
+            while(i<=j){
+                char a=s[i];
+                char b = s[j];
+                if(a!=b){
+                    return false;
+                }
+                else{
+                    i++;
+                    j--;
+                }
+            }
+        }
+        int count=0;
+        for(int i=0;i<s.length();i++){
+            for(int j=i+1;i<s.length();j++){
+                string str=s.substr(i,j);
+                if(palindrom(str) == true){
+                    count ++;
+                }
+            }
+        }
+        return count;*/
+            int n=s.size();
+        int x,y,count=0;
+        for(int i=0;i<n;i++){
+            x=y=i;
+            while(x>=0 && y<n){
+                if(s[x]==s[y])
+                    count++;
+                else
+                    break;
+                x--;
+                y++;
+            }
+                if(i==0)
+                    continue;
+                x=i-1,y=i;
+                while(x>=0 && y<n){
+                    if(s[x]==s[y])
+                    count++;
+                else
+                    break;
+                x--;
+                y++;
+                }
+                
+            }
+        return count;
+    }
+};
