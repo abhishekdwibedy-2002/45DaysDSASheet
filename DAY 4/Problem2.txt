@@ -1,0 +1,30 @@
+
+
+Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+
+A subarray is a contiguous part of an array.
+
+
+
+
+https://leetcode.com/problems/maximum-subarray/
+
+
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int max_total=0;
+        int max=INT_MIN;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]<=(max_total+nums[i])){
+                max_total+=nums[i];
+            }
+            else
+                max_total=nums[i];
+            if(max_total>max){
+                max=max_total;
+            }
+        }
+        return max;
+    }
+};

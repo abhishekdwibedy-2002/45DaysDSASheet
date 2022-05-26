@@ -1,0 +1,29 @@
+Given a string containing just the characters '(' and ')', find the length of the longest valid (well-formed) parentheses substring.
+
+https://leetcode.com/problems/longest-valid-parentheses/
+
+
+
+
+class Solution {
+public:
+    int longestValidParentheses(string s) {
+        stack<int> str;
+        int longest=0;
+        str.push(-1);
+        for(int i=0;i<s.length();i++){
+            if(s[i]=='(') {
+                str.push(i);
+            }
+            else {
+                if(!str.empty())
+                    str.pop();
+                if(!str.empty())
+                    longest=max(longest,i-str.top());
+                else 
+                    str.push(i);
+            }
+        }
+        return longest;
+    }
+};
